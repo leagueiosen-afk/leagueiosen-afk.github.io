@@ -1,0 +1,40 @@
+{
+  "update_time": "2025-08-19 21:48",
+  "total_news": 3,
+  "source": "hn_news",
+  "news": [
+    {
+      "id": 44950091,
+      "title": "PyPI Preventing Domain Resurrection Attacks",
+      "summary": "关于PyPI Preventing Domain Resurrection Attacks的最新动态和详细分析。",
+      "url": "https://blog.pypi.org/posts/2025-08-18-preventing-domain-resurrections/",
+      "score": 30,
+      "time": 1755599561,
+      "by": "pabs3",
+      "type": "hn_news",
+      "category": "AI技术"
+    },
+    {
+      "id": 44950661,
+      "title": "Launch HN: Uplift (YC S25) – Voice models for under-served languages",
+      "summary": "Hi HN, we are Zaid, Muhammad and Hammad, the co-founders of Uplift AI (<a href=\"https:&#x2F;&#x2F;up...",
+      "url": "https://news.ycombinator.com/item?id=44950661",
+      "score": 11,
+      "time": 1755605409,
+      "by": "zaidqureshi",
+      "type": "hn_news",
+      "category": "大语言模型"
+    },
+    {
+      "id": 44942731,
+      "title": "Show HN: Whispering – Open-source, local-first dictation you can trust",
+      "summary": "Hey HN! Braden here, creator of Whispering, an open-source speech-to-text app.<p>I really like dicta...",
+      "url": "https://github.com/epicenter-so/epicenter/tree/main/apps/whispering",
+      "score": 465,
+      "time": 1755535949,
+      "by": "braden-w",
+      "type": "hn_news",
+      "category": "AI技术"
+    }
+  ]
+}
