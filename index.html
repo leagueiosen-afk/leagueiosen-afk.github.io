@@ -1,12 +1,225 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta name="google-adsense-account" content="ca-pub-5063571290810407">
-  <title>AI科技日报</title>
-  <meta name="description" content="每日AI科技新闻摘要">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI科技日报 - 人工智能最新动态</title>
+  <meta name="description" content="提供最新AI研究、技术和行业新闻">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .ad-container {
+      height: 250px;
+      border: 2px solid #e5e7eb;
+      background-color: #f9fafb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    
+    .news-card {
+      transition: transform 0.2s ease-in-out;
+    }
+    
+    .news-card:hover {
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
-<body>
-  <h1>网站准备中</h1>
-  <p>每日AI新闻聚合站即将上线</p>
+<body class="bg-gray-50 min-h-screen">
+  <!-- 导航栏 -->
+  <nav class="bg-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <div class="flex items-center">
+          <h1 class="text-2xl font-bold text-gray-800">AI科技日报</h1>
+        </div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">首页</a>
+          <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">关于</a>
+          <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">联系</a>
+        </div>
+        <!-- 移动端菜单按钮 -->
+        <div class="md:hidden">
+          <button class="text-gray-600 hover:text-blue-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 主要内容 -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <!-- 网站标题和描述 -->
+    <header class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">AI科技日报</h1>
+      <h2 class="text-xl md:text-2xl text-gray-600 mb-4">人工智能最新动态</h2>
+      <p class="text-lg text-gray-500 max-w-3xl mx-auto">提供最新AI研究、技术和行业新闻，深度解析人工智能发展趋势</p>
+    </header>
+
+    <!-- 顶部广告容器 -->
+    <div id="top-ad" class="ad-container">
+      <p class="text-gray-500 text-lg">顶部广告位</p>
+    </div>
+
+    <!-- 新闻文章列表 -->
+    <section class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
+      <!-- 新闻文章1 -->
+      <article class="news-card bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="p-6">
+          <div class="flex items-center mb-3">
+            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">AI研究</span>
+            <span class="text-gray-400 text-sm ml-auto">2024-01-15</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors">
+            OpenAI发布GPT-5预览版，性能大幅提升
+          </h3>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            OpenAI今日宣布推出GPT-5预览版，新版本在理解能力、推理速度和准确性方面都有显著提升。该版本采用了全新的架构设计，能够更好地处理复杂任务和多模态输入。
+          </p>
+          <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">阅读更多 →</a>
+        </div>
+      </article>
+
+      <!-- 新闻文章2 -->
+      <article class="news-card bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="p-6">
+          <div class="flex items-center mb-3">
+            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">硬件</span>
+            <span class="text-gray-400 text-sm ml-auto">2024-01-14</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors">
+            谷歌推出新一代AI芯片TPU v5
+          </h3>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            谷歌发布了新一代AI芯片TPU v5，相比上一代产品，计算能力提升了3倍，能效比提高了40%。新芯片将主要用于谷歌云平台的AI服务。
+          </p>
+          <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">阅读更多 →</a>
+        </div>
+      </article>
+
+      <!-- 新闻文章3 -->
+      <article class="news-card bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="p-6">
+          <div class="flex items-center mb-3">
+            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">云服务</span>
+            <span class="text-gray-400 text-sm ml-auto">2024-01-13</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors">
+            微软Azure AI服务新增多语言支持
+          </h3>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            微软宣布Azure AI服务现在支持超过100种语言，包括多种少数民族语言。这一更新将帮助更多地区的开发者构建本地化的AI应用。
+          </p>
+          <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">阅读更多 →</a>
+        </div>
+      </article>
+
+      <!-- 新闻文章4 -->
+      <article class="news-card bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="p-6">
+          <div class="flex items-center mb-3">
+            <span class="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded">开源AI</span>
+            <span class="text-gray-400 text-sm ml-auto">2024-01-12</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors">
+            Meta发布开源大语言模型Llama 3
+          </h3>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Meta发布了最新的开源大语言模型Llama 3，该模型在多个基准测试中表现优异，同时保持了开源特性，为AI研究社区提供了新的工具。
+          </p>
+          <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">阅读更多 →</a>
+        </div>
+      </article>
+
+      <!-- 新闻文章5 -->
+      <article class="news-card bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="p-6">
+          <div class="flex items-center mb-3">
+            <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">自动驾驶</span>
+            <span class="text-gray-400 text-sm ml-auto">2024-01-11</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors">
+            特斯拉FSD Beta更新至v12.0版本
+          </h3>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            特斯拉发布了FSD Beta v12.0版本，新版本在自动驾驶能力方面有重大突破，特别是在复杂城市环境中的表现更加稳定和安全。
+          </p>
+          <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">阅读更多 →</a>
+        </div>
+      </article>
+
+      <!-- 新闻文章6 -->
+      <article class="news-card bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="p-6">
+          <div class="flex items-center mb-3">
+            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded">医疗AI</span>
+            <span class="text-gray-400 text-sm ml-auto">2024-01-10</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors">
+            AI辅助诊断系统准确率突破95%
+          </h3>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            最新研究显示，基于深度学习的医疗诊断AI系统在多种疾病检测中的准确率已突破95%，为医疗行业带来了革命性的变化。
+          </p>
+          <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">阅读更多 →</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- 中间广告容器 -->
+    <div id="middle-ad" class="ad-container">
+      <p class="text-gray-500 text-lg">中间广告位</p>
+    </div>
+
+    <!-- 底部广告容器 -->
+    <div id="bottom-ad" class="ad-container">
+      <p class="text-gray-500 text-lg">底部广告位</p>
+    </div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">AI科技日报</h3>
+          <p class="text-gray-300">专注于人工智能领域的最新动态，为您提供权威、及时的AI科技资讯。</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">首页</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">关于我们</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">联系我们</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">投稿指南</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">联系方式</h4>
+          <p class="text-gray-300 mb-2">邮箱：contact@aitechdaily.com</p>
+          <p class="text-gray-300">微信：AI科技日报</p>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-300 text-sm mb-4 md:mb-0">
+            © 2024 AI科技日报. 保留所有权利.
+          </p>
+          <div class="flex space-x-6">
+            <a href="#" class="text-gray-300 hover:text-white text-sm transition-colors">隐私政策</a>
+            <a href="#" class="text-gray-300 hover:text-white text-sm transition-colors">使用条款</a>
+            <a href="#" class="text-gray-300 hover:text-white text-sm transition-colors">Cookie政策</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
