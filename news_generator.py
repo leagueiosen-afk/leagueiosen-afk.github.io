@@ -272,9 +272,14 @@ class NewsGenerator:
     def save_news_data(self, data: Dict, filename: str = "ai_news_data.json") -> bool:
         """保存新闻数据到JSON文件"""
         try:
-            with open(filename, 'w', encoding='utf-8') as f:
+            # 确保使用脚本所在目录的相对路径
+            import os
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            file_path = os.path.join(script_dir, filename)
+            
+            with open(file_path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
-            print(f"新闻数据已保存到 {filename}")
+            print(f"新闻数据已保存到 {file_path}")
             return True
         except Exception as e:
             print(f"保存文件失败: {e}")
