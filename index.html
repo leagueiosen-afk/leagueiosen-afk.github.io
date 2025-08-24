@@ -1,645 +1,155 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta name="google-adsense-account" content="ca-pub-5063571290810407">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI前沿 - 人工智能科技资讯平台</title>
-  <meta name="description" content="专注AI技术前沿动态，深度解析人工智能发展趋势，提供最新AI研究、产品发布和行业洞察">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="google-adsense-account" content="ca-pub-5063571290810407">
+  <title>AI科技新闻聚合</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5063571290810407" crossorigin="anonymous"></script>
   <style>
-    /* 基础样式优化 */
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+    }
+    
+    .news-container {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .news-item {
+      border-bottom: 1px solid #eee;
+      padding: 20px 0;
+    }
+    
+    .news-item:last-child {
+      border-bottom: none;
+    }
+    
+    .news-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    
+    .news-summary {
+      color: #666;
+      margin-bottom: 15px;
       line-height: 1.6;
     }
     
-    /* 新闻卡片样式 */
-    .news-card {
-      transition: all 0.3s ease;
-      border: 1px solid transparent;
+    .news-meta {
+      font-size: 0.9rem;
+      color: #999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     
-    .news-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      border-color: rgba(59, 130, 246, 0.1);
+    .news-category {
+      background: #3498db;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
     }
     
-    /* 分类标签样式 */
-    .category-badge {
-      transition: all 0.2s ease;
-      font-weight: 500;
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #666;
     }
     
-    .category-badge:hover {
-      transform: scale(1.05);
+    .error {
+      text-align: center;
+      padding: 40px;
+      color: #e74c3c;
     }
     
-
-    
-    /* 主要内容区域优化 */
-    .main-content {
-      position: relative;
-      z-index: 1;
-    }
-    
-    /* 侧边栏优化 */
-    .sidebar-content {
-      position: sticky;
-      top: 100px;
-    }
-    
-    /* 响应式间距优化 */
-    @media (max-width: 1024px) {
-      .sidebar-content {
-        position: static;
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .news-title {
+        font-size: 1.1rem;
       }
     }
-    
-    /* 加载动画 */
-    .fade-in {
-      animation: fadeIn 0.6s ease-in-out;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* 滚动条美化 */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    
-    ::-webkit-scrollbar-track {
-      background: #f1f5f9;
-    }
-    
-    ::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 4px;
-    }
-    
-    ::-webkit-scrollbar-thumb:hover {
-      background: #94a3b8;
-    }
-    
-    /* 链接悬停效果 */
-    a:hover {
-      text-decoration: none;
-    }
-    
-    /* 图片优化 */
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    
-    /* 代码块样式 */
-    pre, code {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 0.5rem;
-      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-      font-size: 0.875rem;
-    }
-    
-    /* 表格样式 */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-    }
-    
-    th, td {
-      padding: 0.75rem;
-      border: 1px solid #e2e8f0;
-      text-align: left;
-    }
-    
-    th {
-      background: #f8fafc;
-      font-weight: 600;
-    }
-    
-    /* 引用样式 */
-    blockquote {
-      border-left: 4px solid #3b82f6;
-      padding-left: 1rem;
-      margin: 1rem 0;
-      font-style: italic;
-      color: #64748b;
-    }
   </style>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5063571290810407"
-     crossorigin="anonymous"></script>
 </head>
-<body class="bg-gray-50 min-h-screen">
-  <!-- 顶部导航栏 -->
-  <nav class="bg-white shadow-lg sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="flex justify-between items-center py-4">
-        <!-- LOGO -->
-        <div class="flex items-center space-x-3">
-          <a href="index.html" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-            <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-              <span class="text-white font-bold text-xl">AI</span>
-            </div>
-            <div>
-              <h1 class="text-2xl font-bold text-gray-800">AI前沿</h1>
-              <p class="text-xs text-gray-500">人工智能科技资讯</p>
-            </div>
-          </a>
-        </div>
-        
-        <!-- 桌面端导航菜单 -->
-        <div class="hidden lg:flex space-x-8">
-          <a href="index.html" class="text-blue-600 font-medium">首页</a>
-          <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">AI研究</a>
-          <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">产品动态</a>
-          <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">行业分析</a>
-          <a href="about.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">关于我们</a>
-        </div>
-        
-        <!-- 搜索按钮 -->
-        <div class="hidden md:flex items-center space-x-4">
-          <button class="p-2 text-gray-600 hover:text-blue-600 transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-            </svg>
-          </button>
-        </div>
-        
-        <!-- 移动端菜单按钮 -->
-        <div class="lg:hidden">
-          <button class="text-gray-600 hover:text-blue-600">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- 主要内容区域 -->
-  <div class="max-w-7xl mx-auto px-4 py-8">
-    <!-- 主要内容布局 -->
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-      <!-- 主要内容区域 -->
-      <main class="lg:col-span-3 main-content">
-        <!-- 特色文章 -->
-        <section class="mb-12">
-          <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-            <span class="w-1 h-8 bg-blue-600 rounded mr-3"></span>
-            今日头条
-          </h2>
-          
-          <article class="news-card bg-white rounded-xl shadow-md overflow-hidden fade-in">
-            <div class="p-8">
-              <div class="flex items-center mb-4">
-                <span class="category-badge bg-gradient-to-r from-red-500 to-red-600 text-white text-sm font-medium px-3 py-1 rounded-full shadow-sm">重磅发布</span>
-                <span class="text-gray-400 text-sm ml-auto flex items-center">
-                  <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                  </svg>
-                  2024-01-15
-                </span>
-              </div>
-              <h3 class="text-2xl font-bold text-gray-800 mb-4 hover:text-blue-600 transition-colors cursor-pointer">
-                量子计算与AI融合：IBM发布新一代量子AI处理器
-              </h3>
-              <p class="text-gray-600 leading-relaxed text-lg mb-6">
-                IBM今日宣布推出全新的量子AI处理器QAI-1000，该处理器首次实现了量子计算与人工智能的深度融合。通过创新的量子-经典混合架构，QAI-1000在处理复杂优化问题和机器学习任务时，性能比传统GPU提升了10倍以上。这一突破性技术将为金融建模、药物发现和气候预测等领域带来革命性变化。
-              </p>
-              <div class="flex items-center justify-between">
-                <a href="#" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center group">
-                  阅读全文 
-                  <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                  </svg>
-                </a>
-                <div class="flex items-center space-x-4 text-sm text-gray-500">
-                  <span class="flex items-center">
-                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    5分钟
-                  </span>
-                  <span class="flex items-center">
-                    <svg class="w-4 h-4 mr-1 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                    </svg>
-                    热度：🔥🔥🔥🔥🔥
-                  </span>
-                </div>
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <!-- 最新新闻 -->
-        <section class="mb-12">
-          <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-            <span class="w-1 h-8 bg-green-600 rounded mr-3"></span>
-            最新动态
-          </h2>
-          
-          <div class="grid gap-6">
-            <!-- 新闻1 -->
-            <article class="news-card bg-white rounded-lg shadow-md overflow-hidden fade-in">
-              <div class="p-6">
-                <div class="flex items-center mb-3">
-                  <span class="category-badge bg-gradient-to-r from-blue-500 to-blue-600 text-white text-xs font-medium px-2.5 py-1 rounded-full shadow-sm">大语言模型</span>
-                  <span class="text-gray-400 text-sm ml-auto flex items-center">
-                    <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                    </svg>
-                    2024-01-14
-                  </span>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors cursor-pointer">
-                  百度文心一言4.0发布：多模态能力全面升级
-                </h3>
-                <p class="text-gray-600 leading-relaxed mb-4">
-                  百度正式发布文心一言4.0版本，新版本在文本理解、图像识别、语音合成等多个维度实现重大突破。特别是在中文理解和创作方面，4.0版本展现出接近人类水平的表达能力。同时，百度还推出了面向企业的定制化AI解决方案，帮助企业快速构建智能化应用。
-                </p>
-                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center group">
-                  阅读更多 
-                  <svg class="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                  </svg>
-                </a>
-              </div>
-            </article>
-
-            <!-- 新闻2 -->
-            <article class="news-card bg-white rounded-lg shadow-md overflow-hidden">
-              <div class="p-6">
-                <div class="flex items-center mb-3">
-                  <span class="category-badge bg-gradient-to-r from-purple-500 to-purple-600 text-white text-xs font-medium px-2.5 py-1 rounded-full shadow-sm">芯片技术</span>
-                  <span class="text-gray-400 text-sm ml-auto flex items-center">
-                    <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                    </svg>
-                    2024-01-13
-                  </span>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors cursor-pointer">
-                  英伟达H200芯片正式商用：AI训练效率提升3倍
-                </h3>
-                <p class="text-gray-600 leading-relaxed mb-4">
-                  英伟达宣布H200 AI芯片正式进入商用阶段，这款基于Hopper架构的新一代芯片在AI模型训练和推理方面表现卓越。相比上一代H100，H200在内存带宽和计算效率方面都有显著提升，特别适合大规模语言模型和生成式AI应用的部署。
-                </p>
-                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center group">
-                  阅读更多 
-                  <svg class="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                  </svg>
-                </a>
-              </div>
-            </article>
-
-            <!-- 新闻3 -->
-            <article class="news-card bg-white rounded-lg shadow-md overflow-hidden">
-              <div class="p-6">
-                <div class="flex items-center mb-3">
-                  <span class="category-badge bg-gradient-to-r from-green-500 to-green-600 text-white text-xs font-medium px-2.5 py-1 rounded-full shadow-sm">医疗AI</span>
-                  <span class="text-gray-400 text-sm ml-auto flex items-center">
-                    <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                    </svg>
-                    2024-01-12
-                  </span>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors cursor-pointer">
-                  AI辅助诊断系统在癌症早期筛查中取得重大突破
-                </h3>
-                <p class="text-gray-600 leading-relaxed mb-4">
-                  最新研究显示，基于深度学习的AI诊断系统在多种癌症的早期筛查中准确率达到98.5%，远超传统诊断方法。该系统能够分析医学影像、病理切片和基因数据，为医生提供更准确的诊断建议，有望显著提高癌症的早期发现率和治愈率。
-                </p>
-                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center group">
-                  阅读更多 
-                  <svg class="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                  </svg>
-                </a>
-              </div>
-            </article>
-
-            <!-- 新闻4 -->
-            <article class="news-card bg-white rounded-lg shadow-md overflow-hidden">
-              <div class="p-6">
-                <div class="flex items-center mb-3">
-                  <span class="category-badge bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs font-medium px-2.5 py-1 rounded-full shadow-sm">自动驾驶</span>
-                  <span class="text-gray-400 text-sm ml-auto flex items-center">
-                    <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                    </svg>
-                    2024-01-11
-                  </span>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors cursor-pointer">
-                  小鹏汽车发布XNGP 4.0：城市自动驾驶能力全面升级
-                </h3>
-                <p class="text-gray-600 leading-relaxed mb-4">
-                  小鹏汽车正式发布XNGP 4.0智能驾驶系统，新版本在复杂城市环境中的自动驾驶能力得到全面提升。通过升级的感知算法和决策系统，XNGP 4.0能够更好地处理复杂的交通场景，包括无保护左转、复杂路口通行等挑战性场景。
-                </p>
-                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center group">
-                  阅读更多 
-                  <svg class="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                  </svg>
-                </a>
-              </div>
-            </article>
-
-            <!-- 新闻5 -->
-            <article class="news-card bg-white rounded-lg shadow-md overflow-hidden">
-              <div class="p-6">
-                <div class="flex items-center mb-3">
-                  <span class="category-badge bg-gradient-to-r from-indigo-500 to-indigo-600 text-white text-xs font-medium px-2.5 py-1 rounded-full shadow-sm">AI伦理</span>
-                  <span class="text-gray-400 text-sm ml-auto flex items-center">
-                    <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                    </svg>
-                    2024-01-10
-                  </span>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors cursor-pointer">
-                  全球AI安全峰会达成重要共识：建立AI风险评估框架
-                </h3>
-                <p class="text-gray-600 leading-relaxed mb-4">
-                  在最新召开的全球AI安全峰会上，各国代表就AI技术的安全治理达成重要共识。会议决定建立统一的AI风险评估框架，制定AI系统的安全标准和测试规范。这一框架将有助于确保AI技术的发展既推动社会进步，又保障人类安全。
-                </p>
-                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center group">
-                  阅读更多 
-                  <svg class="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                  </svg>
-                </a>
-              </div>
-            </article>
-          </div>
-        </section>
-      </main>
-
-      <!-- 侧边栏 -->
-      <aside class="lg:col-span-1 sidebar-content">
-        <!-- 分类导航 -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-6 fade-in">
-          <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-            <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-            </svg>
-            分类导航
-          </h3>
-          <ul class="space-y-3">
-            <li>
-              <a href="#" class="flex items-center justify-between text-gray-700 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-blue-50">
-                <span class="flex items-center">
-                  <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  大语言模型
-                </span>
-                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">12</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="flex items-center justify-between text-gray-700 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-purple-50">
-                <span class="flex items-center">
-                  <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                  芯片技术
-                </span>
-                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full font-medium">8</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="flex items-center justify-between text-gray-700 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-green-50">
-                <span class="flex items-center">
-                  <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                  医疗AI
-                </span>
-                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium">15</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="flex items-center justify-between text-gray-700 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-orange-50">
-                <span class="flex items-center">
-                  <div class="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
-                  自动驾驶
-                </span>
-                <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full font-medium">9</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="flex items-center justify-between text-gray-700 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-indigo-50">
-                <span class="flex items-center">
-                  <div class="w-2 h-2 bg-indigo-500 rounded-full mr-3"></div>
-                  AI伦理
-                </span>
-                <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full font-medium">6</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="flex items-center justify-between text-gray-700 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-red-50">
-                <span class="flex items-center">
-                  <div class="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
-                  量子计算
-                </span>
-                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full font-medium">4</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- 热门标签 -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-6 fade-in">
-          <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-            <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
-            </svg>
-            热门标签
-          </h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm px-3 py-1 rounded-full hover:from-blue-600 hover:to-blue-700 cursor-pointer transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105">GPT-5</span>
-            <span class="bg-gradient-to-r from-purple-500 to-purple-600 text-white text-sm px-3 py-1 rounded-full hover:from-purple-600 hover:to-purple-700 cursor-pointer transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105">量子AI</span>
-            <span class="bg-gradient-to-r from-green-500 to-green-600 text-white text-sm px-3 py-1 rounded-full hover:from-green-600 hover:to-green-700 cursor-pointer transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105">自动驾驶</span>
-            <span class="bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm px-3 py-1 rounded-full hover:from-orange-600 hover:to-orange-700 cursor-pointer transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105">医疗诊断</span>
-            <span class="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white text-sm px-3 py-1 rounded-full hover:from-indigo-600 hover:to-indigo-700 cursor-pointer transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105">AI芯片</span>
-            <span class="bg-gradient-to-r from-red-500 to-red-600 text-white text-sm px-3 py-1 rounded-full hover:from-red-600 hover:to-red-700 cursor-pointer transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105">文心一言</span>
-          </div>
-        </div>
-      </aside>
+<body>
+  <h1>AI科技快报</h1>
+  
+  <div class="news-container">
+    <div id="news-content">
+      <div class="loading">正在加载最新AI科技新闻...</div>
     </div>
   </div>
 
-  <!-- 页脚 -->
-  <footer class="bg-gray-900 text-white py-12 mt-16">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="grid md:grid-cols-4 gap-8 mb-8">
-        <div class="md:col-span-2">
-          <div class="flex items-center space-x-3 mb-4">
-            <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-              <span class="text-white font-bold text-sm">AI</span>
-            </div>
-            <h3 class="text-xl font-bold">AI前沿</h3>
-          </div>
-          <p class="text-gray-300 mb-4">专注人工智能技术前沿动态，深度解析AI发展趋势，为读者提供权威、及时、专业的AI科技资讯。</p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-        
-        <div>
-          <h4 class="text-lg font-semibold mb-4">快速链接</h4>
-          <ul class="space-y-2">
-            <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors">首页</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">AI研究</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">产品动态</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">行业分析</a></li>
-            <li><a href="about.html" class="text-gray-300 hover:text-white transition-colors">关于我们</a></li>
-            <li><a href="privacy.html" class="text-gray-300 hover:text-white transition-colors">隐私政策</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 class="text-lg font-semibold mb-4">联系我们</h4>
-          <ul class="space-y-2 text-gray-300">
-            <li>邮箱：contact@aifrontier.com</li>
-            <li>微信：AI前沿科技</li>
-            <li>QQ群：123456789</li>
-            <li>商务合作：business@aifrontier.com</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="border-t border-gray-800 pt-8">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <p class="text-gray-300 text-sm mb-4 md:mb-0">
-            © 2024 AI前沿. 保留所有权利. | 京ICP备12345678号
-          </p>
-          <div class="flex space-x-6">
-            <a href="privacy.html" class="text-gray-300 hover:text-white text-sm transition-colors">隐私政策</a>
-            <a href="#" class="text-gray-300 hover:text-white text-sm transition-colors">使用条款</a>
-            <a href="#" class="text-gray-300 hover:text-white text-sm transition-colors">Cookie政策</a>
-            <a href="#" class="text-gray-300 hover:text-white text-sm transition-colors">网站地图</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  
-  <!-- JavaScript -->
   <script>
-    // 页面加载完成后执行
+    async function loadNews() {
+      try {
+        const response = await fetch('ai_news_data.json');
+        if (!response.ok) {
+          throw new Error('无法加载新闻数据');
+        }
+        
+        const data = await response.json();
+        displayNews(data.news || []);
+      } catch (error) {
+        console.error('加载新闻失败:', error);
+        document.getElementById('news-content').innerHTML = 
+          '<div class="error">抱歉，暂时无法加载新闻内容。请稍后再试。</div>';
+      }
+    }
+    
+    function displayNews(newsArray) {
+      const container = document.getElementById('news-content');
+      
+      if (!newsArray || newsArray.length === 0) {
+        container.innerHTML = '<div class="error">暂无新闻内容</div>';
+        return;
+      }
+      
+      const newsHTML = newsArray.map(news => `
+        <article class="news-item">
+          <h2 class="news-title">${news.title}</h2>
+          <p class="news-summary">${news.summary}</p>
+          <div class="news-meta">
+            <span class="news-category">${news.category}</span>
+            <span>${news.date}</span>
+          </div>
+        </article>
+      `).join('');
+      
+      container.innerHTML = newsHTML;
+    }
+    
     document.addEventListener('DOMContentLoaded', function() {
-      // 添加滚动动画
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-      
-      const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, observerOptions);
-      
-      // 观察所有新闻卡片
-      document.querySelectorAll('.news-card').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-      });
-      
-      // 观察侧边栏元素
-      document.querySelectorAll('.fade-in').forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(element);
-      });
-      
-      // 平滑滚动到顶部
-      function scrollToTop() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      }
-      
-      // 添加返回顶部按钮
-      const backToTopBtn = document.createElement('button');
-      backToTopBtn.innerHTML = `
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-        </svg>
-      `;
-      backToTopBtn.className = 'fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 opacity-0 pointer-events-none z-50';
-      backToTopBtn.onclick = scrollToTop;
-      document.body.appendChild(backToTopBtn);
-      
-      // 监听滚动事件，显示/隐藏返回顶部按钮
-      window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-          backToTopBtn.style.opacity = '1';
-          backToTopBtn.style.pointerEvents = 'auto';
-        } else {
-          backToTopBtn.style.opacity = '0';
-          backToTopBtn.style.pointerEvents = 'none';
-        }
-      });
-      
-      // 添加新闻卡片点击效果
-      document.querySelectorAll('.news-card h3').forEach(title => {
-        title.addEventListener('click', function() {
-          // 这里可以添加点击后的逻辑，比如跳转到详情页
-          console.log('点击了文章标题:', this.textContent);
-        });
-      });
-      
-      // 添加标签点击效果
-      document.querySelectorAll('.bg-gradient-to-r').forEach(tag => {
-        tag.addEventListener('click', function() {
-          // 这里可以添加标签筛选逻辑
-          console.log('点击了标签:', this.textContent);
-        });
-      });
-      
-      // 优化移动端体验
-      if (window.innerWidth <= 768) {
-        // 移动端特殊处理
-        document.querySelectorAll('.news-card').forEach(card => {
-          card.style.marginBottom = '1rem';
-        });
-      }
-      
-      // 添加键盘导航支持
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Home') {
-          e.preventDefault();
-          scrollToTop();
-        }
-      });
+      loadNews();
     });
     
-
+    setInterval(loadNews, 300000);
   </script>
 </body>
 </html>
