@@ -36,31 +36,7 @@
       transform: scale(1.05);
     }
     
-    /* Auto ads 兼容性样式 */
-    .adsbygoogle {
-      display: block;
-      margin: 2rem auto;
-      text-align: center;
-      max-width: 100%;
-      overflow: hidden;
-    }
-    
-    /* 确保广告不会破坏布局 */
-    ins.adsbygoogle[data-ad-status="unfilled"] {
-      display: none !important;
-    }
-    
-    /* 广告容器响应式处理 */
-    .ad-container {
-      min-height: 90px;
-      margin: 2rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
-    }
+
     
     /* 主要内容区域优化 */
     .main-content {
@@ -663,19 +639,7 @@
       });
     });
     
-    // 处理Auto ads的布局调整
-    window.addEventListener('load', function() {
-      // 等待Auto ads加载完成后调整布局
-      setTimeout(function() {
-        const ads = document.querySelectorAll('.adsbygoogle');
-        ads.forEach(ad => {
-          // 确保广告不会破坏布局
-          ad.style.margin = '2rem auto';
-          ad.style.display = 'block';
-          ad.style.textAlign = 'center';
-        });
-      }, 1000);
-    });
+
   </script>
 </body>
 </html>
