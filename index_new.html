@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-adsense-account" content="ca-pub-5063571290810407">
+  <title>AI科技新闻聚合 - 最新人工智能技术资讯</title>
+  <meta name="description" content="提供最新的人工智能技术新闻、AI研究进展、机器学习动态、深度学习应用等科技资讯，深度解析AI行业发展趋势。">
+  <meta name="keywords" content="AI新闻,人工智能,机器学习,深度学习,科技资讯,AI技术">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5063571290810407" crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+      font-size: 2.5rem;
+    }
+    
+    .site-description {
+      color: #666;
+      font-size: 1.1rem;
+      margin-bottom: 0;
+    }
+    
+    .news-container {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    
+    .news-item {
+      border-bottom: 1px solid #eee;
+      padding: 20px 0;
+    }
+    
+    .news-item:last-child {
+      border-bottom: none;
+    }
+    
+    .news-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    
+    .news-summary {
+      color: #555;
+      margin-bottom: 15px;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+    
+    .news-meta {
+      font-size: 0.9rem;
+      color: #999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .news-category {
+      background: #3498db;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #666;
+    }
+    
+    .error {
+      text-align: center;
+      padding: 40px;
+      color: #e74c3c;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .news-title {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AI科技新闻聚合</h1>
+    <p class="site-description">专注人工智能技术前沿动态，深度解析AI发展趋势，提供最新科技资讯</p>
+  </header>
+  
+  <main class="news-container">
+    <div id="news-content">
+      <div class="loading">正在加载最新AI科技新闻...</div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2024 AI科技新闻聚合. 保留所有权利.</p>
+  </footer>
+
+  <script>
+    async function loadNews() {
+      try {
+        const response = await fetch('ai_news_data.json');
+        if (!response.ok) {
+          throw new Error('无法加载新闻数据');
+        }
+        
+        const data = await response.json();
+        displayNews(data.news || []);
+      } catch (error) {
+        console.error('加载新闻失败:', error);
+        // 如果无法加载JSON文件，显示默认内容
+        displayDefaultNews();
+      }
+    }
+    
+    function displayNews(newsArray) {
+      const container = document.getElementById('news-content');
+      
+      if (!newsArray || newsArray.length === 0) {
+        displayDefaultNews();
+        return;
+      }
+      
+      const newsHTML = newsArray.map(news => `
+        <article class="news-item">
+          <h2 class="news-title">${news.title}</h2>
+          <p class="news-summary">${news.summary}</p>
+          <div class="news-meta">
+            <span class="news-category">${news.category}</span>
+            <span>${news.date}</span>
+          </div>
+        </article>
+      `).join('');
+      
+      container.innerHTML = newsHTML;
+    }
+    
+    function displayDefaultNews() {
+      const container = document.getElementById('news-content');
+      container.innerHTML = `
+        <article class="news-item">
+          <h2 class="news-title">OpenAI发布GPT-5：多模态能力全面升级</h2>
+          <p class="news-summary">OpenAI正式发布GPT-5，新版本在文本理解、图像识别、语音合成等多个维度实现重大突破。GPT-5不仅在语言理解方面更加精准，还具备了更强的多模态处理能力，能够同时处理文本、图像、音频等多种信息形式。这一升级将推动AI应用进入新的发展阶段。</p>
+          <div class="news-meta">
+            <span class="news-category">大语言模型</span>
+            <span>2024-01-15</span>
+          </div>
+        </article>
+        
+        <article class="news-item">
+          <h2 class="news-title">谷歌推出Gemini Ultra 2.0：性能超越GPT-4</h2>
+          <p class="news-summary">谷歌发布Gemini Ultra 2.0，这款新一代大语言模型在多个基准测试中超越了GPT-4。新版本在推理能力、代码生成、数学计算等方面都有显著提升。谷歌表示，Gemini Ultra 2.0将逐步集成到Google的各项服务中，为用户提供更智能的AI体验。</p>
+          <div class="news-meta">
+            <span class="news-category">AI研究</span>
+            <span>2024-01-14</span>
+          </div>
+        </article>
+        
+        <article class="news-item">
+          <h2 class="news-title">英伟达发布新一代AI芯片：训练效率提升50%</h2>
+          <p class="news-summary">英伟达宣布推出新一代AI训练芯片，相比上一代产品，新芯片在AI模型训练效率方面提升了50%，同时能耗降低了30%。这款芯片将大大加速AI模型的训练过程，为研究人员和开发者提供更强大的计算能力。</p>
+          <div class="news-meta">
+            <span class="news-category">芯片技术</span>
+            <span>2024-01-13</span>
+          </div>
+        </article>
+        
+        <article class="news-item">
+          <h2 class="news-title">AI在医疗诊断领域取得重大突破</h2>
+          <p class="news-summary">最新研究显示，基于深度学习的AI诊断系统在多种疾病的早期筛查中准确率达到95%以上。该系统能够分析医学影像、病理切片等多种医疗数据，为医生提供更准确的诊断建议，有望显著提高疾病的早期发现率和治愈率。</p>
+          <div class="news-meta">
+            <span class="news-category">医疗AI</span>
+            <span>2024-01-12</span>
+          </div>
+        </article>
+        
+        <article class="news-item">
+          <h2 class="news-title">自动驾驶技术商业化进程加速</h2>
+          <p class="news-summary">多家科技公司和汽车制造商宣布在自动驾驶技术商业化方面取得重要进展。新的自动驾驶系统在复杂城市环境中的表现更加稳定，安全性得到显著提升。预计在未来几年内，自动驾驶汽车将在更多城市进行商业化运营。</p>
+          <div class="news-meta">
+            <span class="news-category">自动驾驶</span>
+            <span>2024-01-11</span>
+          </div>
+        </article>
+      `;
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      loadNews();
+    });
+    
+    // 每10分钟刷新一次内容
+    setInterval(loadNews, 600000);
+  </script>
+</body>
+</html>
