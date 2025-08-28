@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leagueiosen-afk.github.io/sitemap.xml
