@@ -13,6 +13,7 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://leagueiosen-afk.github.io/">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5063571290810407" crossorigin="anonymous"></script>
+  
   <!-- 结构化数据标记 -->
   <script type="application/ld+json">
   {
@@ -20,7 +21,7 @@
     "@type": "NewsMediaOrganization",
     "name": "AI科技新闻聚合",
     "url": "https://leagueiosen-afk.github.io",
-    "logo": "https://leagueiosen-afk.github.io/favicon.ico",
+    "logo": "https://leagueiosen-afk.github.io/",
     "description": "提供最新的人工智能技术新闻、AI研究进展、机器学习动态、深度学习应用等科技资讯",
     "foundingDate": "2024",
     "sameAs": [
@@ -28,6 +29,7 @@
     ]
   }
   </script>
+  
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
@@ -38,25 +40,30 @@
       padding: 20px;
       background-color: #f9f9f9;
     }
+    
     h1 {
       text-align: center;
       color: #2c3e50;
       margin-bottom: 30px;
       font-size: 2.5rem;
     }
+    
     .news-container {
       background: white;
       border-radius: 8px;
       padding: 20px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
+    
     .news-item {
       border-bottom: 1px solid #eee;
       padding: 20px 0;
     }
+    
     .news-item:last-child {
       border-bottom: none;
     }
+    
     .news-title {
       font-size: 1.3rem;
       font-weight: bold;
@@ -64,11 +71,13 @@
       margin-bottom: 10px;
       line-height: 1.4;
     }
+    
     .news-summary {
       color: #666;
       margin-bottom: 15px;
       line-height: 1.6;
     }
+    
     .news-meta {
       font-size: 0.9rem;
       color: #999;
@@ -76,6 +85,7 @@
       justify-content: space-between;
       align-items: center;
     }
+    
     .news-category {
       background: #3498db;
       color: white;
@@ -83,29 +93,35 @@
       border-radius: 4px;
       font-size: 0.8rem;
     }
+    
     .loading {
       text-align: center;
       padding: 40px;
       color: #666;
     }
+    
     .error {
       text-align: center;
       padding: 40px;
       color: #e74c3c;
     }
+    
     footer {
       text-align: center;
       padding: 20px;
       color: #666;
       font-size: 0.9rem;
     }
+    
     @media (max-width: 600px) {
       body {
         padding: 15px;
       }
+      
       h1 {
         font-size: 2rem;
       }
+      
       .news-title {
         font-size: 1.1rem;
       }
@@ -114,14 +130,30 @@
 </head>
 <body>
   <h1>AI科技快报</h1>
+  
   <div class="news-container">
+    <!-- AdSense广告位置 -->
+    <div style="text-align: center; margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-5063571290810407"
+           data-ad-slot=""
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    
     <div id="news-content">
       <div class="loading">正在加载最新AI科技新闻...</div>
     </div>
   </div>
+
   <footer>
     <p>© 2024 AI科技新闻聚合. 保留所有权利.</p>
   </footer>
+
   <script>
     async function loadNews() {
       try {
@@ -129,6 +161,7 @@
         if (!response.ok) {
           throw new Error('无法加载新闻数据');
         }
+        
         const data = await response.json();
         displayNews(data.news || []);
       } catch (error) {
@@ -137,12 +170,15 @@
         displayDefaultNews();
       }
     }
+    
     function displayNews(newsArray) {
       const container = document.getElementById('news-content');
+      
       if (!newsArray || newsArray.length === 0) {
         displayDefaultNews();
         return;
       }
+      
       const newsHTML = newsArray.map(news => `
         <article class="news-item">
           <h2 class="news-title">${news.title}</h2>
@@ -153,8 +189,10 @@
           </div>
         </article>
       `).join('');
+      
       container.innerHTML = newsHTML;
     }
+    
     function displayDefaultNews() {
       const container = document.getElementById('news-content');
       container.innerHTML = `
@@ -166,6 +204,7 @@
             <span>2024-01-15</span>
           </div>
         </article>
+        
         <article class="news-item">
           <h2 class="news-title">谷歌推出Gemini Ultra 2.0：性能超越GPT-4</h2>
           <p class="news-summary">谷歌发布Gemini Ultra 2.0，这款新一代大语言模型在多个基准测试中超越了GPT-4。新版本在推理能力、代码生成、数学计算等方面都有显著提升。谷歌表示，Gemini Ultra 2.0将逐步集成到Google的各项服务中，为用户提供更智能的AI体验。</p>
@@ -174,6 +213,7 @@
             <span>2024-01-14</span>
           </div>
         </article>
+        
         <article class="news-item">
           <h2 class="news-title">英伟达发布新一代AI芯片：训练效率提升50%</h2>
           <p class="news-summary">英伟达宣布推出新一代AI训练芯片，相比上一代产品，新芯片在AI模型训练效率方面提升了50%，同时能耗降低了30%。这款芯片将大大加速AI模型的训练过程，为研究人员和开发者提供更强大的计算能力。</p>
@@ -182,6 +222,7 @@
             <span>2024-01-13</span>
           </div>
         </article>
+        
         <article class="news-item">
           <h2 class="news-title">AI在医疗诊断领域取得重大突破</h2>
           <p class="news-summary">最新研究显示，基于深度学习的AI诊断系统在多种疾病的早期筛查中准确率达到95%以上。该系统能够分析医学影像、病理切片等多种医疗数据，为医生提供更准确的诊断建议，有望显著提高疾病的早期发现率和治愈率。</p>
@@ -190,6 +231,7 @@
             <span>2024-01-12</span>
           </div>
         </article>
+        
         <article class="news-item">
           <h2 class="news-title">自动驾驶技术商业化进程加速</h2>
           <p class="news-summary">多家科技公司和汽车制造商宣布在自动驾驶技术商业化方面取得重要进展。新的自动驾驶系统在复杂城市环境中的表现更加稳定，安全性得到显著提升。预计在未来几年内，自动驾驶汽车将在更多城市进行商业化运营。</p>
@@ -200,15 +242,18 @@
         </article>
       `;
     }
+    
     // 页面加载时立即显示默认内容，然后尝试加载最新数据
     document.addEventListener('DOMContentLoaded', function() {
       // 立即显示默认内容，确保SEO友好
       displayDefaultNews();
+      
       // 然后尝试加载最新数据
       setTimeout(function() {
         loadNews();
       }, 1000);
     });
+    
     // 每10分钟刷新一次内容
     setInterval(loadNews, 600000);
   </script>
