@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-adsense-account" content="ca-pub-5063571290810407">
   <!-- Google Search Console verification -->
-  <meta name="google-site-verification" content="请从Search Console复制真实验证代码并替换这里" />
+  <meta name="google-site-verification" content="google67eab7b3e906ad8d" />
   <title>AI科技新闻聚合 - 最新人工智能技术资讯</title>
   <meta name="description" content="提供最新的人工智能技术新闻、AI研究进展、机器学习动态、深度学习应用等科技资讯，深度解析AI行业发展趋势。每日更新，专业分析AI技术前沿动态。">
   <meta name="keywords" content="AI新闻,人工智能,机器学习,深度学习,科技资讯,AI技术,GPT-5,Gemini,英伟达,自动驾驶,医疗AI">
@@ -13,6 +13,23 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://leagueiosen-afk.github.io/">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5063571290810407" crossorigin="anonymous"></script>
+  
+  <!-- 结构化数据标记 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsMediaOrganization",
+    "name": "AI科技新闻聚合",
+    "url": "https://leagueiosen-afk.github.io",
+    "logo": "https://leagueiosen-afk.github.io/logo.png",
+    "description": "提供最新的人工智能技术新闻、AI研究进展、机器学习动态、深度学习应用等科技资讯",
+    "foundingDate": "2024",
+    "sameAs": [
+      "https://leagueiosen-afk.github.io"
+    ]
+  }
+  </script>
+  
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
@@ -115,6 +132,19 @@
   <h1>AI科技快报</h1>
   
   <div class="news-container">
+    <!-- AdSense广告位置 -->
+    <div style="text-align: center; margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-5063571290810407"
+           data-ad-slot="请从AdSense获取广告位ID"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    
     <div id="news-content">
       <div class="loading">正在加载最新AI科技新闻...</div>
     </div>
@@ -152,6 +182,7 @@
       const newsHTML = newsArray.map(news => `
         <article class="news-item">
           <h2 class="news-title">${news.title}</h2>
+  
           <p class="news-summary">${news.summary}</p>
           <div class="news-meta">
             <span class="news-category">${news.category}</span>
@@ -213,8 +244,15 @@
       `;
     }
     
+    // 页面加载时立即显示默认内容，然后尝试加载最新数据
     document.addEventListener('DOMContentLoaded', function() {
-      loadNews();
+      // 立即显示默认内容，确保SEO友好
+      displayDefaultNews();
+      
+      // 然后尝试加载最新数据
+      setTimeout(function() {
+        loadNews();
+      }, 1000);
     });
     
     // 每10分钟刷新一次内容
