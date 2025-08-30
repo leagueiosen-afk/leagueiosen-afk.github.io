@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
+# Allow Google AdSense crawler
+User-agent: Mediapartners-Google
+Allow: /
+
+# Allow Googlebot
+User-agent: Googlebot
+Allow: /
+
 Sitemap: https://leagueiosen-afk.github.io/sitemap.xml
