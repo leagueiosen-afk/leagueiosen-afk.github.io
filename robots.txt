@@ -1,0 +1,39 @@
+User-agent: *
+Allow: /
+
+# Allow Google AdSense crawler
+User-agent: Mediapartners-Google
+Allow: /
+
+# Allow Googlebot
+User-agent: Googlebot
+Allow: /
+
+# Allow Googlebot-Image
+User-agent: Googlebot-Image
+Allow: /
+
+# Allow Googlebot-Mobile
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Allow AdsBot-Google
+User-agent: AdsBot-Google
+Allow: /
+
+# Allow Googlebot-News
+User-agent: Googlebot-News
+Allow: /
+
+# Allow Googlebot-Video
+User-agent: Googlebot-Video
+Allow: /
+
+# Allow APIS-Google
+User-agent: APIS-Google
+Allow: /
+
+# Crawl delay
+Crawl-delay: 1
+
+Sitemap: https://leagueiosen-afk.github.io/sitemap.xml

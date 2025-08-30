@@ -1,0 +1,52 @@
+# GitHub Pages Configuration
+title: AI科技新闻聚合
+description: 专注人工智能技术前沿动态，深度解析AI发展趋势
+url: https://leagueiosen-afk.github.io
+baseurl: ""
+
+# SEO Settings
+author: AI科技新闻聚合
+email: contact@aifrontier.com
+description: 提供最新的人工智能技术新闻、AI研究进展、机器学习动态、深度学习应用等科技资讯
+
+# Build Settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:collection/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "AI科技新闻聚合"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Include files
+include:
+  - _pages
+  - ads.txt
+  - robots.txt
+  - sitemap.xml
