@@ -142,6 +142,17 @@
            data-full-width-responsive="true"></ins>
       <script>
            (adsbygoogle = window.adsbygoogle || []).push({});
+           
+           // AdSense调试代码
+           window.addEventListener('load', function() {
+             setTimeout(function() {
+               var ads = document.querySelectorAll('.adsbygoogle');
+               ads.forEach(function(ad, index) {
+                 console.log('AdSense广告位 ' + index + ' 状态:', ad.getAttribute('status'));
+                 console.log('AdSense广告位 ' + index + ' 尺寸:', ad.offsetWidth + 'x' + ad.offsetHeight);
+               });
+             }, 3000);
+           });
       </script>
     </div>
     
